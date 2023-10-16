@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1016492994757",
+    "project_id": "inova-890e2",
+    "storage_bucket": "inova-890e2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1016492994757:android:b0e05bbcc9f2f93ac100ac",
+        "android_client_info": {
+          "package_name": "com.inova"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1016492994757-4bcbsimen6klkrvkf07sddudjgqv8rpn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.inova",
+            "certificate_hash": "50b8c1fb28c08551c688cbdaedbb47ed398b16f6"
+          }
+        },
+        {
+          "client_id": "1016492994757-n1v181m736ail8469ohi2aujgcdnsimv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBD-LMjrtyeuq3IilKgbBFGI9A-35v8qgg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1016492994757-n1v181m736ail8469ohi2aujgcdnsimv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
