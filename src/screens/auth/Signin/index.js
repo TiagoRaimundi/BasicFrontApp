@@ -9,40 +9,33 @@ import Seperator from "../../../components/Seperator/Index";
 import GoogleLogin from "../../../components/GoogleLogin";
 
 
-const Signup = () => {
+const Signin = () => {
     const [checked, setChecked] = useState(false)
 
     const onSignIn = () => {
         console.log('HELLO')
-
-
     }
 
     return (
         <ScrollView style={styles.container}>
             <AuthHeader title="Sign Up"/>
 
-            <Input label="name" placeholder="Jon Doe"/>
+       
             <Input label="email" placeholder="google@gmail.com"/>
             <Input isPassword label="password" placeholder="............"/>
 
-            <View style={styles.agreeRow}>
-                <Checkbox checked={checked} onCheck={setChecked}/>
-                <Text style={styles.agreeText}>I agree with<Text style={styles.agreeTextBold}> Terms</Text> & <Text style={styles.agreeTextBold}>Privacy</Text></Text>
-            </View>
+            <Button style={styles.button} title="Sign In"/>
 
-            <Button style={styles.button} title="Sign Up"/>
-
-            <Seperator text="Or sign up with"/>
+            <Seperator text="Or sign in with"/>
 
             <GoogleLogin/>
             
             <Text onPress={onSignIn} style={styles.footerText}>
-                Already have an account? 
-                <Text onPress={onSignIn} style={styles.footerLink}> Sign In</Text>
+                Dont't have an account? 
+                <Text onPress={onSignIn} style={styles.footerLink}> Sign Up</Text>
             </Text>
             
         </ScrollView>
     );
 }
-export default Signup;
+export default Signin;

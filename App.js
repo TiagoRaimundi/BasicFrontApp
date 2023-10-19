@@ -3,14 +3,15 @@ import {SafeAreaView} from 'react-native'
 import Splash from './src/screens/auth/Splash'
 import Signup from './src/screens/auth/Signup'
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
+import Signin from './src/screens/auth/Signin';
 
-const App = () => {
+const Appd = () => {
   
   return (
     <SafeAreaView>
-      <Signup/>
+      <Signin  />
     </SafeAreaView>
-
   );
 }
-export default App;
+
+export default Appd;

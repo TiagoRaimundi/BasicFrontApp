@@ -6,17 +6,15 @@ export const styles = StyleSheet.create({
         alignSelf: 'center',
         justifyContent: 'center',
         alignItems: 'center',
+        marginBottom: 50,
     
     },
     image:{
         width: 50,
         height: 50,
-        
-
     }
 
 
-    
- 
+
 })
 
