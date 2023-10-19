@@ -5,23 +5,27 @@ import { NavigationContainer } from '@react-navigation/native';
 import Splash from './src/screens/auth/Splash';
 import Signup from './src/screens/auth/Signup';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { colors } from './src/utils/colors';
 
 const App = () => {
 
   const Stack = createNativeStackNavigator();
 
-  return (
+  const theme = {
+    colors:{
+      background: colors.white
+    }
+  }
 
-      <NavigationContainer>
+  return (
+      <NavigationContainer theme={theme}>
         <Stack.Navigator initialRouteName='Splash'>
           <Stack.Screen name="Splash" component={Splash} />
           <Stack.Screen name="Signin" component={Signin} />
           <Stack.Screen name="Signup" component={Signup} />
         </Stack.Navigator>
-
       </NavigationContainer>
     
- 
   
   );
 }
