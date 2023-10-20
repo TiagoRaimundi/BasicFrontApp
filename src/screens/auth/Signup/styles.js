@@ -9,29 +9,21 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
     },
-
     agreeText:{
         color: colors.blue,
         marginHorizontal: 13,
-
     },
     agreeTextBold:{
-      
         fontWeight: 'bold'
-        
     },
     button:{
-  
         marginVertical:20,
-
     },
     footerText: {
         color: colors.blue,
         marginBottom: 20,
         textAlign: 'center'
-
     },
-
     footerLink:{
         fontWeight: 'bold',
     }

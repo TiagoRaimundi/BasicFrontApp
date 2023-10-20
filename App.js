@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView } from 'react-native';
+import { Image, ImageComponent, SafeAreaView } from 'react-native';
 import Signin from './src/screens/auth/Signin';
 import { NavigationContainer } from '@react-navigation/native';
 import Splash from './src/screens/auth/Splash';
@@ -17,16 +17,40 @@ const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
 const Tabs = () => (
-  <Tab.Navigator screenOptions={{ headerShown: false }}>
-      <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Favorites" component={Favorites}  />
-      <Tab.Screen name="Profile" component={Profile} />
-    </Tab.Navigator>
+  <Tab.Navigator
+    screenOptions={({ route }) => ({
+      tabBarIcon: ({ focused, color, size }) => {
+        let icon;
+
+        if (route.name === 'Home') {
+          icon = focused
+            ? require('./src/assets/tabs/home_active.png')
+            : require('./src/assets/tabs/home.png');
+        } else if (route.name === 'Profile') {
+          icon = focused
+            ? require('./src/assets/tabs/profile_active.png')
+            : require('./src/assets/tabs/profile.png');
+        } else if (route.name === 'Favorites') {
+          icon = focused
+            ? require('./src/assets/tabs/bookmarker_active.png')
+            : require('./src/assets/tabs/bookmarker.png');
+        }
+        return <Image style={{width: 24, height: 24,}} source={icon} />;
+      },
+
+      headerShown: false,
+    })}
+
+  >
+    <Tab.Screen name="Home" component={Home} />
+    <Tab.Screen name="Favorites" component={Favorites} />
+    <Tab.Screen name="Profile" component={Profile} />
+  </Tab.Navigator>
 
 )
 
 const App = () => {
-  const isSignedIn = false;
+  const isSignedIn = true;
 
   const theme = {
     colors: {
@@ -63,6 +87,7 @@ const App = () => {
               />
             </>
           )}
+
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

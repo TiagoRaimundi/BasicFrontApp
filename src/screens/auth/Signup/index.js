@@ -9,6 +9,8 @@ import Seperator from "../../../components/Seperator/Index";
 import GoogleLogin from "../../../components/GoogleLogin";
 import {SafeAreaView} from 'react-native-safe-area-context'
 
+
+
 const Signup = ({navigation}) => {
     const [checked, setChecked] = useState(false)
 
