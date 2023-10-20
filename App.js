@@ -8,8 +8,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { colors } from './src/utils/colors';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Profile from './src/screens/app/Profile';
-import Favorites from './src/screens/app/Favorites';
+import Profile from './src/screens/app/Profile/index';
+import Favorites from './src/screens/app/Favorites/index';
 import Home from './src/screens/app/Home/Index';
 
 
@@ -17,17 +17,16 @@ const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
 const Tabs = () => (
-  <Tab.Navigator>
-     
-      <Tab.Screen name="Favorites" component={Favorites} />
+  <Tab.Navigator screenOptions={{ headerShown: false }}>
       <Tab.Screen name="Home" component={Home} />
+      <Tab.Screen name="Favorites" component={Favorites}  />
       <Tab.Screen name="Profile" component={Profile} />
     </Tab.Navigator>
 
 )
 
 const App = () => {
-  const isSignedIn = true;
+  const isSignedIn = false;
 
   const theme = {
     colors: {

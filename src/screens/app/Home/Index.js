@@ -7,7 +7,7 @@ const Home = () => {
     return(
         <SafeAreaView>
             <ScrollView>
-                <Text>Favorites</Text>
+                <Text>Home</Text>
             </ScrollView>
         </SafeAreaView>
     )
