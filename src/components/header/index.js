@@ -1,9 +1,14 @@
 import React, { useState } from "react"
 import { Pressable, Text, View, Image } from "react-native"
 import { styles } from "./styles"
+import Input  from "../input"
 
-const Header = ({ title, onBackPress, onSearch, onLogout, showLogout, showSearch, showBack }) => {
-  const {showSearchInput, setShowSearchInput} = useState(false)
+const Header = ({ title, onBackPress, onLogout, showLogout, showSearch, showBack }) => {
+  const [showSearchInput, setShowSearchInput] = useState(false);
+
+  const onSearchClick = () => {
+    setShowSearchInput(s => !s)
+  } 
 
     return (
       <View>
@@ -13,7 +18,7 @@ const Header = ({ title, onBackPress, onSearch, onLogout, showLogout, showSearch
                   <Image style={styles.icon} source={require('../../assets/back.png')} />
               </Pressable>
             ) : showSearch ? (
-                <Pressable onPress={onSearch}>
+                <Pressable onPress={onSearchClick}>
                   <Image style={styles.icon} source={require('../../assets/search.png')} />
                 </Pressable>
 
@@ -28,7 +33,7 @@ const Header = ({ title, onBackPress, onSearch, onLogout, showLogout, showSearch
             ): <View style={styles.space}/>}
         </View>
               {showSearchInput ? (
-                < Input placeholder="Type your keyhword..."/>
+                <Input placeholder="Type your keyhword..."/>
               ): null}
       </View>
     )
