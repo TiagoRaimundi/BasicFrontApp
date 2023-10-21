@@ -11,4 +11,5 @@ export const styles = StyleSheet.create({
     productsList: {
         paddingHorizontal: 16,
     }
+    
 })
