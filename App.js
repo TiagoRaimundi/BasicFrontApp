@@ -39,6 +39,8 @@ const Tabs = () => (
       },
 
       headerShown: false,
+      tabBarShowLabel: false,
+      tabBarStyle: {borderTopColor: colors.lightGrey}
     })}
 
   >
