@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
     container: {
-        padding: 24,
+        padding: 0,
     },
     list: {
         paddingVertical: 24,
@@ -11,5 +11,4 @@ export const styles = StyleSheet.create({
     productsList: {
         paddingHorizontal: 16,
     }
-    
 })

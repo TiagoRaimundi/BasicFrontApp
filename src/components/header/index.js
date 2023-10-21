@@ -1,18 +1,18 @@
-import React, { useState } from "react"
-import { Pressable, Text, View, Image } from "react-native"
-import { styles } from "./styles"
-import Input  from "../input"
+import React, { useState } from 'react';
+import { Pressable, Text, View, Image } from 'react-native';
+import Input from '../input';
+import { styles } from './styles';
 
-const Header = ({ title, onBackPress, onLogout, showLogout, showSearch, showBack }) => {
-  const [showSearchInput, setShowSearchInput] = useState(false);
+const Header = ({ title, onBackPress, onLogout, showLogout, showSearch, onSearch, keyword, showBack }) => {
+    const [showSearchInput, setShowSearchInput] = useState(false);
 
-  const onSearchClick = () => {
-    setShowSearchInput(s => !s)
-  } 
+    const onSearchClick = () => {
+        setShowSearchInput(s => !s)
+    }
 
     return (
-      <View>
-          <View style={styles.container}>
+        <View style={styles.mainContainer}>
+           <View style={styles.container}>
             {showBack ? (
              <Pressable onPress={onBackPress}>
                   <Image style={styles.icon} source={require('../../assets/back.png')} />
@@ -35,8 +35,8 @@ const Header = ({ title, onBackPress, onLogout, showLogout, showSearch, showBack
               {showSearchInput ? (
                 <Input placeholder="Type your keyhword..."/>
               ): null}
-      </View>
+        </View>
     )
 }
 
-export default Header
+export default React.memo(Header);

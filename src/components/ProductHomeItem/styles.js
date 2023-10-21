@@ -1,27 +1,23 @@
-import { StyleSheet, Dimensions } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
 import { colors } from "../../utils/colors";
 
-const {width} = Dimensions.get('window')
-console.log('width:>>', width)
+const { width } = Dimensions.get('window')
 
 export const styles = StyleSheet.create({
     container: {
-        marginHorizontal: 8,
-
+        margin: 8,
     },
     title: {
         color: colors.textGrey,
-        paddingVertical:8,
+        paddingVertical: 8,
     },
     image: {
         width: (width - 64) / 2,
-        height: 200,
+        height: 220,
         borderRadius: 8,
     },
     price: {
         color: colors.black,
-        paddingBottom: 8
-
+        paddingBottom: 8,
     }
-
 })

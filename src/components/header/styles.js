@@ -1,15 +1,17 @@
-import { StyleSheet} from "react-native"
-import { colors } from "../../utils/colors"
+import { StyleSheet } from "react-native";
+import { colors } from "../../utils/colors";
 
 export const styles = StyleSheet.create({
-    container:{
+    mainContainer: {
+        paddingHorizontal: 24,
+    },
+    container: {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        paddingHorizontal: 24,
-
+        marginVertical: 8,
     },
-    title:{
+    title: {
         color: colors.black,
         fontSize: 16,
         fontWeight: 'bold'
@@ -18,10 +20,7 @@ export const styles = StyleSheet.create({
         width: 24,
         height: 24,
     },
-    space:{
+    space: {
         width: 24,
-   
     }
- 
 })
-
