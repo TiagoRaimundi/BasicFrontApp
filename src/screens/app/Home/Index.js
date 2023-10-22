@@ -8,19 +8,27 @@ import CategoryBox from '../../../components/CategoryBox';
 import { products } from '../../../data/products';
 import ProductHomeItem from '../../../components/ProductHomeItem';
 
-
 const Home = () => {
     const [selectedCategory, setSelectedCategory] = useState()
+    const [keyword, setKeyword] = useState()
     const [filteredProducts, setFilteredProducts] = useState()
+    console.log('Keyword:>> ', keyword)
 
     useEffect(() => {
-        if (selectedCategory) {
-            const updatedProducts = products.filter((product) => product?.category === selectedCategory)
-            setFilteredProducts(updatedProducts)
-        } else{
-            setFilteredProducts(products)
+        if (selectedCategory && !keyword) {
+            const updatedProducts = products.filter((product) => product?.category === selectedCategory);
+            setFilteredProducts(updatedProducts);
+        } else if (selectedCategory && keyword) {
+            const updatedProducts = products.filter((product) => product?.category === selectedCategory && product?.title?.toLowerCase().includes(keyword?.toLowerCase()));
+            setFilteredProducts(updatedProducts);
+        } else if (!selectedCategory && keyword) {
+            const updatedProducts = products.filter((product) => product?.title?.toLowerCase().includes(keyword?.toLowerCase()));
+            setFilteredProducts(updatedProducts);
+        } else {
+            setFilteredProducts(products);
         }
-    }, [selectedCategory])
+    }, [selectedCategory, keyword]);
+    
 
 
     const renderCategoryItem = ({ item, index }) => {
@@ -32,7 +40,6 @@ const Home = () => {
                 isFirst={index === 0}
                 title={item?.title}
                 image={item?.image}
-
             />
         )
     };
@@ -42,11 +49,10 @@ const Home = () => {
             <ProductHomeItem {...item} />
         )
     }
-
     return (
         <SafeAreaView style={styles.container}>
 
-            <Header showSearch title="Find All You Need" />
+            <Header showSearch onSearch={setKeyword} keyword={keyword} title="Find All You Need" />
 
             <FlatList
                 showsHorizontalScrollIndicator={false}
