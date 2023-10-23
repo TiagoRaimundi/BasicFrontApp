@@ -20,7 +20,11 @@ const Splash = ({ navigation}) => {
                 <Text style={styles.title}>Here! </Text>
             </View>
 
+            <View style={{ width: '100%', flexDirection: 'row'}}>
             <Button onPress={onSignUp} title="Sign Up" />
+
+            </View>
+         
 
             <Pressable onPress={onSignin} hitSlop={20}>
                 <Text style={styles.footerText}>Sign In</Text>
