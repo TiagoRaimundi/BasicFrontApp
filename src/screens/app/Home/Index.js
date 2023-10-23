@@ -14,7 +14,23 @@ const Home = () => {
     const [filteredProducts, setFilteredProducts] = useState()
     console.log('Keyword:>> ', keyword)
 
+
     useEffect(() => {
+        let updatedProducts = products;
+    
+        if (selectedCategory) {
+            updatedProducts = updatedProducts.filter(product => product.category === selectedCategory);
+        }
+        
+        if (keyword) {
+            const keywordLowerCase = keyword.toLowerCase();
+            updatedProducts = updatedProducts.filter(product => product.title.toLowerCase().includes(keywordLowerCase));
+        }
+        
+    
+        setFilteredProducts(updatedProducts);
+    }, [selectedCategory, keyword]);
+    useEffect(() => {/////////////EstudarEsse useEffect
         if (selectedCategory && !keyword) {
             const updatedProducts = products.filter((product) => product?.category === selectedCategory);
             setFilteredProducts(updatedProducts);
@@ -28,7 +44,6 @@ const Home = () => {
             setFilteredProducts(products);
         }
     }, [selectedCategory, keyword]);
-    
 
 
     const renderCategoryItem = ({ item, index }) => {
