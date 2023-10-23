@@ -1,37 +1,43 @@
 import React from 'react';
 import { ScrollView, Text, Image, View, Pressable } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import {styles } from './Styles'
-import  Button  from './../../../components/Button/Index'
+import { styles } from './Styles';
+import Button from './../../../components/Button/Index';
+import ImageCarousel from '../../../components/ImageCarousel/Index';
 
-const ProductDetails = ({route, navigation}) => {
-    const { product } = route?.params || {}
+const ProductDetails = ({ route, navigation }) => {
+    const { product = {} } = route?.params;
+    const { images, image, title, price, description } = product;
+
     const onBackPress = () => {
-        navigation.goBack()
+        navigation.goBack();
+    };
 
-    }
     return (
-        
         <SafeAreaView style={styles.safe}>
             <ScrollView style={styles.container}>
-                <Image style={styles.image} source={{uri: product?.image}} />
+                {images?.length ? (
+                    <ImageCarousel images={images} />
+                ) : (
+                    image && <Image style={styles.image} source={{ uri: image }} />
+                )}
                 <View style={styles.content}>
-                <Text style={styles.title}>{product?.title}</Text>
-                <Text style={styles.price}>{product?.price}</Text>
-                <Text style={styles.description}>{product?.description}</Text>
+                    {title && <Text style={styles.title}>{title}</Text>}
+                    {price && <Text style={styles.price}>{price}</Text>}
+                    {description && <Text style={styles.description}>{description}</Text>}
                 </View>
                 <Pressable onPress={onBackPress} style={styles.backContainer}>
-                    <Image style={styles.backIcon} source={require('../../../assets/backdetail.png')}/>
+                    <Image style={styles.backIcon} source={require('../../../assets/backdetail.png')} />
                 </Pressable>
             </ScrollView>
             <View style={styles.footer}>
                 <Pressable style={styles.bookmarkerContainer}>
-                    <Image style={styles.bookmarkerIcon} source={require('../../../assets/tabs/bookmarker.png')}/>
+                    <Image style={styles.bookmarkerIcon} source={require('../../../assets/tabs/bookmarker.png')} />
                 </Pressable>
-                <Button title="Contact Seller"/>
+                <Button title="Contact Seller" />
             </View>
         </SafeAreaView>
     );
-}
+};
 
 export default React.memo(ProductDetails);
