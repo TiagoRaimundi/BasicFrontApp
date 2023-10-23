@@ -8,7 +8,8 @@ import CategoryBox from '../../../components/CategoryBox';
 import { products } from '../../../data/products';
 import ProductHomeItem from '../../../components/ProductHomeItem';
 
-const Home = () => {
+
+const Home = ({navigation}) => {
     const [selectedCategory, setSelectedCategory] = useState()
     const [keyword, setKeyword] = useState()
     const [filteredProducts, setFilteredProducts] = useState()
@@ -30,20 +31,6 @@ const Home = () => {
     
         setFilteredProducts(updatedProducts);
     }, [selectedCategory, keyword]);
-    useEffect(() => {/////////////EstudarEsse useEffect
-        if (selectedCategory && !keyword) {
-            const updatedProducts = products.filter((product) => product?.category === selectedCategory);
-            setFilteredProducts(updatedProducts);
-        } else if (selectedCategory && keyword) {
-            const updatedProducts = products.filter((product) => product?.category === selectedCategory && product?.title?.toLowerCase().includes(keyword?.toLowerCase()));
-            setFilteredProducts(updatedProducts);
-        } else if (!selectedCategory && keyword) {
-            const updatedProducts = products.filter((product) => product?.title?.toLowerCase().includes(keyword?.toLowerCase()));
-            setFilteredProducts(updatedProducts);
-        } else {
-            setFilteredProducts(products);
-        }
-    }, [selectedCategory, keyword]);
 
 
     const renderCategoryItem = ({ item, index }) => {
@@ -60,8 +47,12 @@ const Home = () => {
     };
 
     const renderProductItem = ({ item }) => {
+        const onProductPress = (product) => {
+            navigation.navigate('ProductDetails', {product})
+
+        }
         return (
-            <ProductHomeItem {...item} />
+            <ProductHomeItem onPress={() => onProductPress(item)} {...item} />
         )
     }
     return (

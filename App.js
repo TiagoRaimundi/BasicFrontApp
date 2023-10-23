@@ -11,6 +11,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Profile from './src/screens/app/Profile/index';
 import Favorites from './src/screens/app/Favorites/index';
 import Home from './src/screens/app/Home/Index';
+import ProductDetails from './src/screens/app/ProductDetails';
 
 
 const Tab = createBottomTabNavigator();
@@ -65,11 +66,13 @@ const App = () => {
       <NavigationContainer theme={theme}>
         <Stack.Navigator>
           {isSignedIn ? (
-            <Stack.Screen
-              name="Tabs"
-              component={Tabs}
-              options={{ headerShown: false }}
-            />
+            <>
+
+            <Stack.Screen name="Tabs" component={Tabs} options={{ headerShown: false }}/>
+            <Stack.Screen name="ProductDetails" component={ProductDetails} options={{ headerShown: false }}/>
+
+            </>
+         
           ) : (
             <>
               <Stack.Screen
