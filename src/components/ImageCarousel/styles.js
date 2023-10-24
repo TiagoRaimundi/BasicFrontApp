@@ -24,6 +24,9 @@ export const styles = StyleSheet.create({
         width: 20,
         borderRadius: 10,
         backgroundColor: colors.white,
+        margin: 5,
+        
+
 
     },
     activeLine:{
