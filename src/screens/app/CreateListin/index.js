@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
-import { Image, ScrollView, Text, TouchableOpacity, View, Pressable, ActivityIndicator } from 'react-native';
+import { Image, ScrollView, Text, TouchableOpacity, View, Pressable, ActivityIndicator, Keyboard } from 'react-native';
 import { styles } from './styles';
 import { launchImageLibrary } from 'react-native-image-picker';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Header from '../../../components/header/index';
+import Input from '../../../components/input/index';
 
 const CreateListin = ({ navigation }) => {
     const [images, setImages] = useState([]);
+    const [values, setValues] = useState({});
     const [loading, setLoading] = useState(false);
 
     const goBack = () => {
@@ -14,6 +16,7 @@ const CreateListin = ({ navigation }) => {
     }
 
     const UploadNewImage = async () => {
+        Keyboard.dismiss();
         setLoading(true);
         const result = await launchImageLibrary();
         
@@ -39,6 +42,10 @@ const CreateListin = ({ navigation }) => {
         setImages(prevImages => prevImages.filter(img => img.fileName !== image.fileName));
     }
 
+    const onChange = (value, key) => {
+        setValues(prevValues => ({ ...prevValues, [key]: value }));
+    }
+
     return (
         <SafeAreaView>
             <Header showBack={true} onBackPress={goBack} title="Create a new Listing" />
@@ -62,6 +69,10 @@ const CreateListin = ({ navigation }) => {
                         <ActivityIndicator />
                     )}
                 </View>
+                <Input placeholder="Listing Title" label="Title" value={values.title} onChangeText={(v) => onChange(v, 'title')} />
+                <Input placeholder="Enter price in USD" label="Price" value={values.price} onChangeText={(v) => onChange(v, 'price')} keyboardType="numeric" />
+                <Input style={styles.textarea} placeholder="Tell us more..." label="Description" value={values.description} onChangeText={(v) => onChange(v, 'description')} />
+
             </ScrollView>
         </SafeAreaView>
     )

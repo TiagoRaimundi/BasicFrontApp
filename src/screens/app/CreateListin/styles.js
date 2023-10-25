@@ -59,6 +59,10 @@ export const styles = StyleSheet.create({
         flexDirection:'row',
         marginTop: 8,
         marginRight: 8,
+    },
+    textarea:{
+        minHeight: 150,
+
     }
   
 })
