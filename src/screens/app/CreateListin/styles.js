@@ -49,5 +49,16 @@ export const styles = StyleSheet.create({
         flexWrap: 'wrap',
         paddingBottom: 16,
     },
+    delete:{
+        width:24,
+        height: 24, 
+        marginLeft: -16,
+        marginTop: -10,
+    },
+    imageCont: {
+        flexDirection:'row',
+        marginTop: 8,
+        marginRight: 8,
+    }
   
 })
