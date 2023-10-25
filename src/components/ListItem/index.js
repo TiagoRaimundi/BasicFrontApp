@@ -2,7 +2,7 @@ import React from "react";
 import { Pressable, Text, View, Image } from "react-native";
 import { styles } from "./styles";
 
-const ListItem = ({ title, subtitle, onPress }) => {
+const ListItem = ({ title, subtitle, onPress, style }) => {
     return (
         <Pressable onPress={onPress} style={styles.container}>
             <View style={styles.content}>
