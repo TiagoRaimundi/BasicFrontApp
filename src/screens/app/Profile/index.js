@@ -15,7 +15,11 @@ const Profile = ({ navigation }) => {
 
     const onSettingsPress = () => {
         navigation.navigate('Settings');
-        console.log('Tentando navegar para Settings...');
+
+    }
+    const onNewListingPress = () => {
+        navigation.navigate('CreateListing');
+
     }
 
     return (
@@ -28,7 +32,7 @@ const Profile = ({ navigation }) => {
                     <ListItem title="My listings" subtitle={`You have ${num} listings`} />
                     <ListItem onPress={onSettingsPress} title="Settings" subtitle="Account, FAQ, Contact" />
                 </View>
-                <Button style={{ flex: 0 }} title="Add New Listing" />
+                <Button onPress={onNewListingPress}style={{ flex: 0 }} title="Add New Listing" />
             </View>
         </SafeAreaView>
     );

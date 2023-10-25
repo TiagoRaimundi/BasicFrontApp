@@ -5,6 +5,7 @@ import { colors } from "../../utils/colors"
 export const styles = StyleSheet.create({
     container: {
         paddingHorizontal: 16,
+        paddingVertical: 8,
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -29,12 +30,12 @@ export const styles = StyleSheet.create({
         fontWeight: '500',
         fontSize: 14,
     },
+    
     label:{
         color: colors.gray,
         marginTop: 6,
         fontSize: 12,
         marginBottom: 6,
-
     },
 
 
