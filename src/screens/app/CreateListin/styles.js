@@ -63,6 +63,7 @@ export const styles = StyleSheet.create({
     textarea:{
         minHeight: 150,
 
-    }
+    },
+    
   
 })

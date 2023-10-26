@@ -5,6 +5,7 @@ import { launchImageLibrary } from 'react-native-image-picker';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Header from '../../../components/header/index';
 import Input from '../../../components/input/index';
+import { categories } from '../../../data/categories';
 
 const CreateListin = ({ navigation }) => {
     const [images, setImages] = useState([]);
@@ -71,6 +72,7 @@ const CreateListin = ({ navigation }) => {
                         )}
                     </View>
                     <Input placeholder="Listing Title" label="Title" value={values.title} onChangeText={(v) => onChange(v, 'title')} />
+                    <Input placeholder="Selected Category" label="Category" value={values.category} onChangeText={(v) => onChange(v, 'category')} type="picker" options={categories}/>
                     <Input placeholder="Enter price in USD" label="Price" value={values.price} onChangeText={(v) => onChange(v, 'price')} keyboardType="numeric" />
                     <Input style={styles.textarea} placeholder="Tell us more..." label="Description" value={values.description} onChangeText={(v) => onChange(v, 'description')} />
 
