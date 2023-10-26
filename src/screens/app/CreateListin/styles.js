@@ -64,6 +64,9 @@ export const styles = StyleSheet.create({
         minHeight: 150,
 
     },
-    
+    Button :{
+        marginBottom: 160
+    }
+
   
 })

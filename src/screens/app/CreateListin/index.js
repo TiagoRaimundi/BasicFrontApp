@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
-import { Image, ScrollView, Text, TouchableOpacity, View, Pressable, ActivityIndicator, KeyboardAvoidingView,Platform  } from 'react-native';
+import { Image, ScrollView, Text, TouchableOpacity, View, Pressable, ActivityIndicator, KeyboardAvoidingView, Keyboard } from 'react-native';
 import { styles } from './styles';
 import { launchImageLibrary } from 'react-native-image-picker';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Header from '../../../components/header/index';
 import Input from '../../../components/input/index';
 import { categories } from '../../../data/categories';
+import Button from '../../../components/Button/Index'
 
 const CreateListin = ({ navigation }) => {
     const [images, setImages] = useState([]);
     const [values, setValues] = useState({});
     const [loading, setLoading] = useState(false);
+    console.log('values :>>', values)
 
     const goBack = () => {
         navigation.goBack();
@@ -50,8 +52,8 @@ const CreateListin = ({ navigation }) => {
     return (
         <SafeAreaView>
             <Header showBack={true} onBackPress={goBack} title="Create a new Listing" />
-            <KeyboardAvoidingView behavior='position'>
-                <ScrollView style={styles.container}>
+            <ScrollView style={styles.container}>
+                <KeyboardAvoidingView behavior='position'>
                     <Text style={styles.sectionTitle}>Upload Photos</Text>
                     <View style={styles.imageRow}>
                         <TouchableOpacity disabled={loading} style={styles.uploadContainer} onPress={UploadNewImage}>
@@ -72,13 +74,14 @@ const CreateListin = ({ navigation }) => {
                         )}
                     </View>
                     <Input placeholder="Listing Title" label="Title" value={values.title} onChangeText={(v) => onChange(v, 'title')} />
-                    <Input placeholder="Selected Category" label="Category" value={values.category} onChangeText={(v) => onChange(v, 'category')} type="picker" options={categories}/>
+                    <Input placeholder="Selected Category" label="Category" value={values.category} onChangeText={(v) => onChange(v, 'category')} type="picker" options={categories} />
                     <Input placeholder="Enter price in USD" label="Price" value={values.price} onChangeText={(v) => onChange(v, 'price')} keyboardType="numeric" />
                     <Input style={styles.textarea} placeholder="Tell us more..." label="Description" value={values.description} onChangeText={(v) => onChange(v, 'description')} />
 
-                </ScrollView>
+                </KeyboardAvoidingView>
+                <Button title="Submit" style={styles.Button} />
+            </ScrollView>
 
-            </KeyboardAvoidingView>
 
         </SafeAreaView>
     )
