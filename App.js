@@ -14,6 +14,7 @@ import Home from './src/screens/app/Home/Index';
 import ProductDetails from './src/screens/app/ProductDetails';
 import Settings from './src/screens/app/Settings';
 import CreateListin from './src/screens/app/CreateListin';
+import MyListings from './src/screens/app/MyListings';
 
 
 const Tab = createBottomTabNavigator();
@@ -26,6 +27,8 @@ const ProfileStack = () => {
       <Stack.Screen name="Profile" component={Profile} options={{ headerShown: false }} />
       <Stack.Screen name="Settings" component={Settings} options={{ headerShown: false }} />
       <Stack.Screen name="CreateListing" component={CreateListin} options={{ headerShown: false }} />
+      <Stack.Screen name="MyListings" component={MyListings} options={{ headerShown: false }} />
+
     </Stack.Navigator>
 
   )
